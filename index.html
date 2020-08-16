@@ -12,14 +12,14 @@
     <div id="output">&nbsp;</div>
 
     <script type="text/javascript">
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-         document.getElementById("output").innerHTML = this.responseText;
-        }
+      const ws = new WebSocket('https://spygame2.herokuapp.com/');
+      ws.onopen = function() {
+          console.log('WebSocket Client Connected');
+          ws.send('Hi this is web client.');
       };
-      //xhttp.open("GET", "https://spygame2.herokuapp.com/", true);
-      //xhttp.send();
+      ws.onmessage = function(e) {
+        console.log("Received: '" + e.data + "'");
+      };
   	</script>
 
   </body>

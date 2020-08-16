@@ -12,7 +12,7 @@
     <div id="output">&nbsp;</div>
 
     <script type="text/javascript">
-      const ws = new WebSocket('https://spygame2.herokuapp.com:34268/');
+      const ws = new WebSocket("wss://spygame2.herokuapp.com:34268/");
       ws.onopen = function() {
           console.log('WebSocket Client Connected');
           ws.send('Hi this is web client.');
